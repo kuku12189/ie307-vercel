@@ -8,7 +8,7 @@ import path from 'path';
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 587,
-  secure: true,
+  secure: false,
   auth: {
     user: process.env.SMTP_USER,  // Sử dụng biến môi trường cho thông tin bảo mật
     pass: process.env.SMTP_PASS,
