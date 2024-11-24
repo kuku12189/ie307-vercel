@@ -30,6 +30,10 @@
     {
       "src": "/api/updateUserInfo",
       "dest": "/api/updateUserInfo.js"
+    },
+    {
+      "src": "/api/updatePic",
+      "dest": "/api/updatePic.js"
     }
   ]
 }
