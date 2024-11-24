@@ -27,7 +27,7 @@ export default async function handler(req, res) {
     const sql = neon(process.env.DATABASE_URL);
 
     // Lấy danh sách người dùng
-    const users = await sql('SELECT username, password, phone, address, sale, isKeepLogin, picUrl FROM users WHERE username = $1', [username]);
+    const users = await sql('SELECT * FROM users WHERE username = $1', [username]);
 
     if (users.length === 0) {
       return res.status(404).json({ error: 'User not found.' });
