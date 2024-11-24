@@ -38,6 +38,10 @@
     {
       "src": "/api/addSale",
       "dest": "/api/addSale.js"
+    },
+    {
+      "src": "/api/subSale",
+      "dest": "/api/subSale.js"
     }
   ]
 }
