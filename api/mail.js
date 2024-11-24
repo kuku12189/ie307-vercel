@@ -53,4 +53,4 @@ export default async function sendMail(req, res) {
   } else {
     res.status(405).json({ error: 'Method Not Allowed' });
   }
-}
+} 
