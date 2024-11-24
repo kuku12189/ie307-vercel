@@ -27,6 +27,7 @@ export default async function handler(req, res) {
       // Trả về thông tin người dùng nếu đăng nhập thành công
       return res.status(200).json({
         username: user.username,
+        password: user.password,
         phone: user.phone,
         address: user.address,
         picUrl: user.picurl,
@@ -57,6 +58,7 @@ export default async function handler(req, res) {
 
       return res.status(201).json({
         message: 'User registered via Google login.',
+        password: user.password,
         username: newUser.username,
         phone: newUser.phone,
         address: newUser.address,
