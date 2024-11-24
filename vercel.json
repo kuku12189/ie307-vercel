@@ -18,6 +18,10 @@
     {
       "src": "/api/stripeIntent",
       "dest": "/api/stripe.js"
+    },
+    {
+      "src": "/api/register",
+      "dest": "/api/register.js"
     }
   ]
 }
