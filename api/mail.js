@@ -8,7 +8,7 @@ import path from 'path';
 const transporter = nodemailer.createTransport({
   host: 'smtp.gmail.com',
   port: 587,
-  secure: false,
+  secure: true,
   auth: {
     user: process.env.SMTP_USER,  // Sử dụng biến môi trường cho thông tin bảo mật
     pass: process.env.SMTP_PASS,
@@ -36,7 +36,7 @@ export default async function sendMail(req, res) {
         .replace('[email]', text);
 
       const mailOptions = {
-        from: '"Your App Support" <support@example.com>',
+        from: '"Coffee Shop Support" <coffee_app@pmquoc.org>',
         to: to,
         subject: subject || 'Coffee Shop - Password Recovery',
         html: htmlContent,
