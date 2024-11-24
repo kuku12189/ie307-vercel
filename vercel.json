@@ -26,6 +26,10 @@
     {
       "src": "/api/login",
       "dest": "/api/login.js"
+    },
+    {
+      "src": "/api/updateUserInfo",
+      "dest": "/api/updateUserInfo.js"
     }
   ]
 }
