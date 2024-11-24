@@ -47,7 +47,7 @@ export default async function handler(req, res) {
         password,
         phone: '',
         address: '',
-        picUrl: photo || defaultPhoto,
+        picUrl: defaultPhoto,
         sale: 0,
       };
 

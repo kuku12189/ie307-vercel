@@ -38,6 +38,7 @@ export default async function handler(req, res) {
       username,
       phone: updatedPhone,
       address: updatedAddress,
+      password: updatedPassword,
     });
   } catch (error) {
     console.error('Error updating user:', error);

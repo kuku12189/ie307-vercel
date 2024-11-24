@@ -42,6 +42,10 @@
     {
       "src": "/api/subSale",
       "dest": "/api/subSale.js"
+    },
+    {
+      "src": "/api/forgotPw",
+      "dest": "/api/forgotPw.js"
     }
   ]
 }
