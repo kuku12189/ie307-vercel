@@ -56,7 +56,7 @@ export default async function handler(req, res) {
         [newUser.username, newUser.password, newUser.phone, newUser.address, newUser.picUrl, newUser.sale]
       );
 
-      return res.status(201).json({
+      return res.status(200).json({
         message: 'User registered via Google login.',
         password: user.password,
         username: newUser.username,
