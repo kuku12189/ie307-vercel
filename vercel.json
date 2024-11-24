@@ -14,6 +14,10 @@
     {
       "src": "/api/sendMail",
       "dest": "/api/mail.js"
+    },
+    {
+      "src": "/api/stripeIntent",
+      "dest": "/api/stripe.js"
     }
   ]
 }
