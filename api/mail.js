@@ -27,7 +27,6 @@ export default async function sendMail(req, res) {
     try {
       const __filename = fileURLToPath(import.meta.url);
       const __dirname = dirname(__filename);
-      // const templatePath = path.join(__dirname, '../templates/pwTemplate.html');
       const templatePath = path.join(process.cwd(), 'templates', 'pwTemplate.html');
       const template = fs.readFileSync(templatePath, 'utf8');
 
@@ -42,16 +41,16 @@ export default async function sendMail(req, res) {
         html: htmlContent,
       };
 
-      transporter.sendMail(mailOptions, (error, info) => {
-        if (error) {
-          return res.status(500).json({ error: 'Error sending email: ' + error.message });
-        }
-        res.status(200).json({ message: 'Email sent: ' + info.response });
-      });
+      // Sử dụng async/await để gửi email
+      const info = await transporter.sendMail(mailOptions);
+
+      // Gửi phản hồi nếu thành công
+      res.status(200).json({ message: 'Email sent: ' + info.response });
     } catch (error) {
+      // Xử lý lỗi nếu có
       res.status(500).json({ error: 'Error processing email: ' + error.message });
     }
   } else {
     res.status(405).json({ error: 'Method Not Allowed' });
   }
-} 
+}

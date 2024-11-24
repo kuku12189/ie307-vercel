@@ -12,26 +12,27 @@ cloudinary.config({
 const storage = multer.memoryStorage();
 const upload = multer({ storage: storage });
 
-const upload_file = (file, folder) => {
-  return new Promise((resolve, reject) => {
-    cloudinary.uploader.upload(
-      file,
-      (result) => {
-        resolve({
-          public_id: result.public_id,
-          url: result.url,
-        });
-      },
-      {
-        resource_type: "auto",
-        folder,
-      }
-    );
-  });
+// Hàm tải tệp lên Cloudinary dưới dạng bất đồng bộ
+const uploadFile = async (file, folder) => {
+  try {
+    const result = await cloudinary.uploader.upload(file, {
+      resource_type: "auto",
+      folder,
+    });
+
+    return {
+      public_id: result.public_id,
+      url: result.url,
+      secure_url: result.secure_url,
+    };
+  } catch (error) {
+    throw new Error('Error uploading to Cloudinary: ' + error.message);
+  }
 }
 
 export default async function upImage(req, res) {
   if (req.method === 'POST') {
+    // Sử dụng async/await cho Multer upload
     upload.single('file')(req, res, async (err) => {
       if (err) {
         return res.status(400).json({ error: 'Error in file upload: ' + err.message });
@@ -46,13 +47,13 @@ export default async function upImage(req, res) {
         const folder = 'rn72'; // Tên folder trong Cloudinary
 
         // Gửi ảnh lên Cloudinary
-        const result = await upload_file(file, folder);
+        const result = await uploadFile(file, folder);
 
         if (result) {
           return res.status(200).json({
-            secureUrl: result?.secure_url,
+            secureUrl: result.secure_url,
             url: result.url,
-            public_id: result.public_id
+            public_id: result.public_id,
           });
         }
 
