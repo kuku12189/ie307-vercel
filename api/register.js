@@ -20,7 +20,7 @@ export default async function handler(req, res) {
 
       // Thêm người dùng mới vào database
       await sql(
-        'INSERT INTO users (username, password, phone, address, picUrl, sale) VALUES ($1, $2, $3, $4, $5, $6)', 
+        'INSERT INTO users (username, password, phone, address, picUrl, sale) VALUES ($1, $2, $3, $4, $5, $6)',
         [username, password, '', '', 'https://thesapphirehalong.vn/wp-content/uploads/2022/10/avatar-bua-11.jpg', 0]
       );
 
