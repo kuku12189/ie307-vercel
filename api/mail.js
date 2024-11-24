@@ -27,7 +27,8 @@ export default async function sendMail(req, res) {
     try {
       const __filename = fileURLToPath(import.meta.url);
       const __dirname = dirname(__filename);
-      const templatePath = path.join(__dirname, '../templates/pwTemplate.html');
+      // const templatePath = path.join(__dirname, '../templates/pwTemplate.html');
+      const templatePath = path.join(process.cwd(), 'templates', 'pwTemplate.html');
       const template = fs.readFileSync(templatePath, 'utf8');
 
       const htmlContent = template
