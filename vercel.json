@@ -1,0 +1,19 @@
+{
+  "version": 2,
+  "builds": [
+    {
+      "src": "api/**/*.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/upImage",
+      "dest": "/api/image.js"
+    },
+    {
+      "src": "/api/sendMail",
+      "dest": "/api/mail.js"
+    }
+  ]
+}
