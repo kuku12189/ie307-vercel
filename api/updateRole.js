@@ -18,8 +18,7 @@ export default async function handler(req, res) {
       const result = await sql`
         UPDATE roles 
         SET rolename = ${rolename} 
-        WHERE userid = (SELECT id FROM users WHERE username = ${username})
-        RETURNING rolename;
+        WHERE userid = (SELECT id FROM users WHERE username = ${username});
       `;
 
       if (result.length === 0) {
