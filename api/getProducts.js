@@ -1,12 +1,8 @@
-import { neon } from '@neondatabase/serverless';
+import {neon} from '@neondatabase/serverless';
 
 const sql = neon(process.env.DATABASE_URL);
 
 export default async function handler(req, res) {
-  if (req.method !== 'GET') {
-    return res.status(405).json({ success: false, error: 'Method Not Allowed' });
-  }
-
   try {
     // Truy vấn dữ liệu từ bảng products
     const result = await sql`
