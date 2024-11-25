@@ -51,9 +51,17 @@ export default async function handler(req, res) {
         sale: 0,
       };
 
-      await sql(
-        'INSERT INTO users (username, password, phone, address, picUrl, sale) VALUES ($1, $2, $3, $4, $5, $6)',
+      const result = await sql(
+        'INSERT INTO users (username, password, phone, address, picUrl, sale) VALUES ($1, $2, $3, $4, $5, $6) RETURNING id',
         [newUser.username, newUser.password, newUser.phone, newUser.address, newUser.picUrl, newUser.sale]
+      );
+
+      const userId = result[0].id;
+
+      // Thêm vai trò mặc định cho người dùng mới
+      await sql(
+        'INSERT INTO roles (rolename, userid) VALUES ($1, $2)',
+        ['user', userId]
       );
 
       return res.status(200).json({
