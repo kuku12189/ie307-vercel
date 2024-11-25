@@ -46,6 +46,10 @@
     {
       "src": "/api/forgotPw",
       "dest": "/api/forgotPw.js"
+    },
+    {
+      "src": "/api/getUserWithRole",
+      "dest": "/api/getUserWithRole.js"
     }
   ]
 }
