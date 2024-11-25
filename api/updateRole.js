@@ -19,7 +19,7 @@ export default async function handler(req, res) {
         UPDATE roles 
         SET rolename = ${rolename} 
         WHERE userid = (SELECT id FROM users WHERE username = ${username})
-        RETURNING rolename;  // Trả về giá trị rolename mới để xác nhận
+        RETURNING rolename;
       `;
 
       if (result.length === 0) {
