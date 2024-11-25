@@ -54,6 +54,10 @@
     {
       "src": "/api/updateRole",
       "dest": "/api/updateRole.js"
+    },
+    {
+      "src": "/api/getProducts",
+      "dest": "/api/getProducts.js"
     }
   ]
 }
